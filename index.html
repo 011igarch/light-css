@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Light Effect</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        font-size: 7em;
+        font-weight: 900;
+        letter-spacing: -1rem;
+        text-transform: uppercase;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #141e30; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #243b55,
+          #141e30
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #243b55,
+          #141e30
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-size: cover;
+      }
+
+      @property --rotate {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+
+      .light {
+        background-image: conic-gradient(from var(--rotate) at 29% 10%, #ee5 40%, #ffb700, #ee5 60%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+
+        animation: rotateLight 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes rotateLight {
+        from {
+          --rotate: 0.15turn
+        } 
+        to {
+          --rotate: -0.15turn
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="light">Light Effect</div>
+  </body>
+</html>
